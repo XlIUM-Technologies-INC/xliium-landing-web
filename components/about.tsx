@@ -40,30 +40,34 @@ export default function About() {
           </p>
         </div>
 
-        <div className="overflow-x-auto pb-4 -mx-6 px-6 scroll-smooth">
-          <div className="flex gap-8 md:gap-12 justify-center min-w-min">
+        <div className="overflow-x-auto pb-4 -mx-6 px-6 scroll-smooth snap-x snap-mandatory">
+          <div className="flex gap-8 md:grid md:grid-cols-3 md:gap-12 justify-start md:justify-center min-w-min">
             {teamMembers.map((member, index) => (
               <div
                 key={index}
-                className="flex flex-col items-center text-center flex-shrink-0"
+                className="flex flex-col items-center text-center flex-shrink-0 w-[calc(50vw-2rem)] md:w-auto snap-center"
               >
                 <div className="mb-6">
                   <img
                     src={member.image || "/placeholder.svg"}
                     alt={member.name}
-                    className="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover shadow-lg"
+                    className="w-32 h-32 md:w-48 md:h-48 rounded-full object-cover shadow-lg mx-auto"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-foreground mb-1">
+                <h3 className="text-lg md:text-xl font-bold text-foreground mb-1">
                   {member.name}
                 </h3>
-                <p className="text-sm text-muted-foreground font-medium">
+                <p className="text-xs md:text-sm text-muted-foreground font-medium">
                   {member.role}
                 </p>
               </div>
             ))}
           </div>
         </div>
+
+        <p className="text-center text-sm text-muted-foreground mt-4 md:hidden">
+          ← Swipe to see more team members →
+        </p>
       </div>
     </section>
   );
