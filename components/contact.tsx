@@ -80,13 +80,13 @@ export default function Contact() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
     },
   };
 
   return (
-    <section 
-      id="contact" 
+    <section
+      id="contact"
       className="relative py-20 md:py-32 bg-gradient-to-b from-gray-50 via-white to-gray-50 overflow-hidden"
     >
       <style>{`
@@ -105,7 +105,6 @@ export default function Contact() {
           background-clip: text;
         }
       `}</style>
-
 
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
@@ -168,7 +167,8 @@ export default function Contact() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-lg text-gray-600"
           >
-            Tell us about your website and we'll be in touch within 1-2 business days.
+            Tell us about your website and we'll be in touch within 1-2 business
+            days.
           </motion.p>
         </motion.div>
 
@@ -273,7 +273,10 @@ export default function Contact() {
                   />
                 </div>
 
-                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
                   <Button
                     type="submit"
                     className="w-full bg-gray-900 text-white hover:bg-gray-800 h-14 rounded-xl text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
@@ -282,7 +285,11 @@ export default function Contact() {
                     {isLoading ? (
                       <motion.div
                         animate={{ rotate: 360 }}
-                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                        transition={{
+                          duration: 1,
+                          repeat: Infinity,
+                          ease: "linear",
+                        }}
                       >
                         <Send className="w-5 h-5" />
                       </motion.div>
@@ -346,7 +353,9 @@ export default function Contact() {
                     <Mail className="w-6 h-6 text-gray-900" />
                   </motion.div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-1 text-lg">Email</h4>
+                    <h4 className="font-semibold text-gray-900 mb-1 text-lg">
+                      Email
+                    </h4>
                     <a
                       href="mailto:info@xliium.com"
                       className="text-gray-900 hover:text-gray-700 font-medium hover:underline"
@@ -371,7 +380,9 @@ export default function Contact() {
                     <Phone className="w-6 h-6 text-white" />
                   </motion.div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 mb-1 text-lg">Phone</h4>
+                    <h4 className="font-semibold text-gray-900 mb-1 text-lg">
+                      Phone
+                    </h4>
                     <a
                       href="tel:+12368671555"
                       className="text-gray-900 hover:text-gray-700 font-medium hover:underline"
@@ -391,9 +402,11 @@ export default function Contact() {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="p-6 backdrop-blur-xl bg-gradient-to-br from-gray-50/80 to-gray-100/80 border border-white/50 rounded-2xl"
             >
-              <h4 className="font-bold text-gray-900 mb-3 text-lg script-font">Quick Response</h4>
+              <h4 className="font-bold text-gray-900 mb-3 text-lg script-font">
+                Quick Response
+              </h4>
               <p className="text-gray-700 text-sm leading-relaxed">
-                We typically respond to all inquiries within 1-2 business days. 
+                We typically respond to all inquiries within 1-2 business days.
                 For urgent matters, please call us directly.
               </p>
             </motion.div>

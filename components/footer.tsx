@@ -37,7 +37,7 @@ export default function Footer() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+      transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const },
     },
   };
 
@@ -101,18 +101,19 @@ export default function Footer() {
           {/* Company Info */}
           <motion.div variants={itemVariants}>
             <h3 className="font-bold text-xl mb-4 text-gray-900 script-font ">
-              XlIUM Technologies Inc.
+              XLlIUM Technologies Inc.
             </h3>
             <p className="text-sm text-gray-700 leading-relaxed mb-4">
               Custom websites and proven SEO strategies to help local businesses
               grow online.
             </p>
-
           </motion.div>
 
           {/* Services */}
           <motion.div variants={itemVariants}>
-            <h4 className="font-semibold text-lg mb-4 text-gray-900">Services</h4>
+            <h4 className="font-semibold text-lg mb-4 text-gray-900">
+              Services
+            </h4>
             <ul className="space-y-3 text-sm">
               {[
                 { label: "SEO & Local Search", href: "#services" },
@@ -139,7 +140,9 @@ export default function Footer() {
 
           {/* Company */}
           <motion.div variants={itemVariants}>
-            <h4 className="font-semibold text-lg mb-4 text-gray-900">Company</h4>
+            <h4 className="font-semibold text-lg mb-4 text-gray-900">
+              Company
+            </h4>
             <ul className="space-y-3 text-sm">
               {[
                 { label: "About Us", href: "#about" },
@@ -166,7 +169,9 @@ export default function Footer() {
 
           {/* Contact */}
           <motion.div variants={itemVariants}>
-            <h4 className="font-semibold text-lg mb-4 text-gray-900">Get in Touch</h4>
+            <h4 className="font-semibold text-lg mb-4 text-gray-900">
+              Get in Touch
+            </h4>
             <ul className="space-y-4 text-sm">
               <motion.li whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
                 <a
@@ -191,7 +196,7 @@ export default function Footer() {
                 </a>
               </motion.li>
             </ul>
-</motion.div>
+          </motion.div>
         </motion.div>
 
         {/* Bottom Bar */}
@@ -202,7 +207,7 @@ export default function Footer() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="border-t border-gray-300 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-600 gap-4"
         >
-          <p>© {currentYear} XlIUM Technologies Inc. All rights reserved.</p>
+          <p>© {currentYear} XLlIUM Technologies Inc. All rights reserved.</p>
           <p className="text-center md:text-right">
             Helping local businesses grow online across North America.
           </p>

@@ -2,7 +2,7 @@
 
 > Custom websites and proven SEO strategies to help local businesses grow online.
 
-Official website for **XlIUM Technologies Inc.** - A web development and SEO agency specializing in helping local businesses succeed online.
+Official website for **XLlIUM Technologies Inc.** - A web development and SEO agency specializing in helping local businesses succeed online.
 
 ## 🚀 Features
 
@@ -117,7 +117,7 @@ This project is optimized for deployment on [Vercel](https://vercel.com):
 
 ## 📄 License
 
-© 2025 XlIUM Technologies Inc. All rights reserved.
+© 2025 XLlIUM Technologies Inc. All rights reserved.
 
 ---
 

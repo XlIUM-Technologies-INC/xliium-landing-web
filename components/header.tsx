@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ArrowLeft } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, ArrowLeft } from "lucide-react";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,28 +11,30 @@ export default function Header() {
       setScrolled(window.scrollY > 100);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: 'smooth' });
+    if (id === "home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      const element = document.getElementById(id);
+      element?.scrollIntoView({ behavior: "smooth" });
+    }
     setIsOpen(false);
   };
 
   const navItems = [
-    { label: 'Home', id: 'home' },
-    { label: 'Services', id: 'services' },
-    { label: 'Process', id: 'process' },
-    { label: 'About', id: 'about' },
-    { label: 'Contact', id: 'contact' },
+    { label: "Home", id: "home" },
+    { label: "Services", id: "services" },
+    { label: "Process", id: "process" },
+    { label: "About", id: "about" },
+    { label: "Contact", id: "contact" },
   ];
 
   return (
-    <motion.header
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
-    >
+    <motion.header className="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
       {/* Full Navigation - Visible at top */}
       <AnimatePresence>
         {!scrolled && (
@@ -46,7 +48,7 @@ export default function Header() {
             <div className="flex items-center justify-between">
               {/* Logo */}
               <motion.button
-                onClick={() => scrollToSection('home')}
+                onClick={() => scrollToSection("home")}
                 className="flex items-center gap-2 cursor-pointer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -76,7 +78,7 @@ export default function Header() {
 
               {/* Book a Call Button */}
               <motion.button
-                onClick={() => scrollToSection('contact')}
+                onClick={() => scrollToSection("contact")}
                 className="px-6 py-3 rounded-xl font-bold text-sm bg-white text-gray-900 hover:bg-white/90 shadow-lg transition-all"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -140,10 +142,11 @@ export default function Header() {
             >
               {/* Back Button */}
               <motion.button
-                onClick={() => scrollToSection('home')}
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                 className="p-2 rounded-full text-gray-900 hover:bg-gray-100 transition-all"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
+                aria-label="Back to top"
               >
                 <ArrowLeft size={20} />
               </motion.button>
@@ -153,7 +156,7 @@ export default function Header() {
 
               {/* Book a Call Button */}
               <motion.button
-                onClick={() => scrollToSection('contact')}
+                onClick={() => scrollToSection("contact")}
                 className="px-6 py-2 rounded-full font-semibold text-sm bg-gray-900 text-white hover:bg-gray-800 transition-all"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -205,7 +208,9 @@ export default function Header() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            className={`absolute ${scrolled ? 'top-20' : 'top-full'} left-1/2 -translate-x-1/2 w-64 rounded-2xl overflow-hidden shadow-2xl bg-white/95 backdrop-blur-xl border border-gray-200/50`}
+            className={`absolute ${
+              scrolled ? "top-20" : "top-full"
+            } left-1/2 -translate-x-1/2 w-64 rounded-2xl overflow-hidden shadow-2xl bg-white/95 backdrop-blur-xl border border-gray-200/50`}
             initial={{ opacity: 0, y: -20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}

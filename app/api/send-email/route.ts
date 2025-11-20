@@ -18,7 +18,7 @@ export async function POST(request: NextRequest) {
 
     // 发送邮件
     const data = await resend.emails.send({
-      from: "XlIUM Technologies Inc. <onboarding@resend.dev>", // 临时测试用，生产环境需验证域名
+      from: "XLlIUM Technologies Inc. <onboarding@resend.dev>", // 临时测试用，生产环境需验证域名
       to: ["info@xliium.com"],
       subject: `New Contact Form Submission from ${name}`,
       html: `

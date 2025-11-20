@@ -24,21 +24,21 @@ export default function About() {
 
   const cardVariants = {
     hidden: { opacity: 0, y: 60, scale: 0.8 },
-    visible: (i) => ({
+    visible: (i: number) => ({
       opacity: 1,
       y: 0,
       scale: 1,
       transition: {
         duration: 0.7,
         delay: i * 0.2,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as const,
       },
     }),
   };
 
   return (
-    <section 
-      id="about" 
+    <section
+      id="about"
       className="relative py-20 md:py-32 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden"
     >
       <style>{`
@@ -105,8 +105,6 @@ export default function About() {
           >
             Meet Our Team
           </motion.h2>
-
-          
 
           <motion.p
             initial={{ opacity: 0 }}
@@ -210,9 +208,7 @@ export default function About() {
               </motion.div>
 
               {/* Decorative line */}
-              <motion.div
-                className="w-0 h-0.5 bg-black mt-4 group-hover:w-16 transition-all duration-500"
-              />
+              <motion.div className="w-0 h-0.5 bg-black mt-4 group-hover:w-16 transition-all duration-500" />
             </motion.div>
           ))}
         </div>
