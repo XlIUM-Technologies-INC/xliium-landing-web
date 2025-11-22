@@ -157,7 +157,7 @@ export default function Hero() {
                 Help your business
               </h1>
               <div className="relative inline-block">
-                <h1 className="script-font text-6xl md:text-8xl lg:text-9xl gradient-text leading-[0.9]">
+                <h1 className="script-font text-6xl md:text-8xl lg:text-9xl gradient-text leading-[0.9] p-3">
                   {typedText}
                   <motion.span
                     className="inline-block w-1 h-20 md:h-32 bg-white ml-2"
