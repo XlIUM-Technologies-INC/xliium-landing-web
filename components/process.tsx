@@ -123,15 +123,15 @@ function StepCard({ step, index }: { step: (typeof steps)[0]; index: number }) {
 
       {/* Number Badge with path indicator */}
       <motion.div
-        className={`flex ${isLeft ? "justify-start" : "justify-end"} mb-8`}
+        className={`flex ${isLeft ? "justify-start" : "justify-end"} mb-6`}
       >
         <motion.div
           className="relative"
           whileHover={{ scale: 1.1 }}
           transition={{ type: "spring", stiffness: 400 }}
         >
-          <div className="w-16 h-16 bg-gray-900 rounded-full flex items-center justify-center shadow-lg relative z-10">
-            <span className="text-white font-bold text-2xl">{step.number}</span>
+          <div className="w-12 h-12 bg-gray-900 rounded-full flex items-center justify-center shadow-lg relative z-10">
+            <span className="text-white font-bold text-xl">{step.number}</span>
           </div>
           {/* Glow effect */}
           <motion.div
@@ -144,8 +144,8 @@ function StepCard({ step, index }: { step: (typeof steps)[0]; index: number }) {
 
       {/* Card */}
       <Card
-        className={`max-w-2xl p-12 bg-white hover:bg-gray-50 transition-all duration-500 rounded-3xl overflow-hidden ${
-          isLeft ? "ml-16" : "mr-16"
+        className={`max-w-xl p-8 bg-white hover:bg-gray-50 transition-all duration-500 rounded-3xl overflow-hidden ${
+          isLeft ? "ml-12" : "mr-12"
         }`}
         style={{
           border: "1px solid transparent",
@@ -159,20 +159,20 @@ function StepCard({ step, index }: { step: (typeof steps)[0]; index: number }) {
         <div
           className={`flex items-center ${
             isLeft ? "justify-start" : "justify-end"
-          } mb-8`}
+          } mb-6`}
         >
           <motion.div
-            className="w-20 h-20 bg-gray-100 rounded-3xl flex items-center justify-center shadow-sm"
+            className="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center shadow-sm"
             whileHover={{ rotate: 360, scale: 1.1 }}
             transition={{ duration: 0.6 }}
           >
-            <Icon className="w-10 h-10 text-gray-900" />
+            <Icon className="w-8 h-8 text-gray-900" />
           </motion.div>
         </div>
 
         {/* Content */}
         <h3
-          className={`font-bold text-gray-900 mb-4 text-2xl ${
+          className={`font-bold text-gray-900 mb-3 text-xl ${
             isLeft ? "text-left" : "text-right"
           }`}
         >
@@ -180,7 +180,7 @@ function StepCard({ step, index }: { step: (typeof steps)[0]; index: number }) {
         </h3>
 
         <p
-          className={`text-base text-gray-600 leading-relaxed ${
+          className={`text-sm text-gray-600 leading-relaxed ${
             isLeft ? "text-left" : "text-right"
           }`}
         >
@@ -191,7 +191,7 @@ function StepCard({ step, index }: { step: (typeof steps)[0]; index: number }) {
         <motion.div
           className={`absolute ${
             isLeft ? "top-0 left-0" : "top-0 right-0"
-          } w-20 h-20 opacity-10`}
+          } w-16 h-16 opacity-10`}
           initial={{ scale: 0 }}
           whileInView={{ scale: 1 }}
           viewport={{ once: true }}
@@ -294,7 +294,7 @@ export default function Process() {
 
             {/* Floating Image 1 - Top Left (Adventure) */}
             <motion.div
-              className="absolute -left-40 top-20 z-0 pointer-events-none"
+              className="absolute -left-32 top-20 z-0 pointer-events-none"
               initial={{ opacity: 0, x: -100, y: -50, rotate: -20 }}
               whileInView={{ opacity: 0.6, x: 0, y: 0, rotate: -15 }}
               viewport={{ once: false, amount: 0.2 }}
@@ -310,7 +310,7 @@ export default function Process() {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="relative w-56 h-56 p-6 backdrop-blur-xl bg-white/40 border border-white/60 shadow-2xl"
+                className="relative w-40 h-40 p-4 backdrop-blur-xl bg-white/40 border border-white/60 shadow-2xl"
                 style={{ borderRadius: "60% 40% 35% 65%/55% 40% 60% 45%" }}
               >
                 <motion.div
@@ -340,7 +340,7 @@ export default function Process() {
 
             {/* Floating Image 2 - Middle Right (Search) */}
             <motion.div
-              className="absolute -right-40 top-[40%] z-0 pointer-events-none"
+              className="absolute -right-32 top-[40%] z-0 pointer-events-none"
               initial={{ opacity: 0, x: 100, y: 50, rotate: 18 }}
               whileInView={{ opacity: 0.6, x: 0, y: 0, rotate: 12 }}
               viewport={{ once: false, amount: 0.2 }}
@@ -361,7 +361,7 @@ export default function Process() {
                   ease: "easeInOut",
                   delay: 1,
                 }}
-                className="relative w-60 h-60 p-6 backdrop-blur-xl bg-white/40 border border-white/60 shadow-2xl"
+                className="relative w-44 h-44 p-4 backdrop-blur-xl bg-white/40 border border-white/60 shadow-2xl"
                 style={{ borderRadius: "45% 55% 50% 50%/60% 45% 55% 40%" }}
               >
                 <motion.div
@@ -392,7 +392,7 @@ export default function Process() {
 
             {/* Floating Image 3 - Bottom Left (Web Search) */}
             <motion.div
-              className="absolute -left-36 bottom-40 z-0 pointer-events-none"
+              className="absolute -left-28 bottom-40 z-0 pointer-events-none"
               initial={{ opacity: 0, x: -80, y: 80, rotate: -22 }}
               whileInView={{ opacity: 0.6, x: 0, y: 0, rotate: -16 }}
               viewport={{ once: false, amount: 0.2 }}
@@ -413,7 +413,7 @@ export default function Process() {
                   ease: "easeInOut",
                   delay: 2,
                 }}
-                className="relative w-52 h-52 p-6 backdrop-blur-xl bg-white/40 border border-white/60 shadow-2xl"
+                className="relative w-38 h-38 p-4 backdrop-blur-xl bg-white/40 border border-white/60 shadow-2xl"
                 style={{ borderRadius: "50% 50% 40% 60%/55% 45% 60% 40%" }}
               >
                 <motion.div

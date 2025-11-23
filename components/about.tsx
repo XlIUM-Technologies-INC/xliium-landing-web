@@ -6,12 +6,12 @@ import Image from "next/image";
 export default function About() {
   const teamMembers = [
     {
-      name: "Xiaohong Xu",
+      name: "Billy Xu",
       role: "Technical Lead & Full-Stack Developer",
       image: "/xiaohong.jpg",
     },
     {
-      name: "Shuyang (Daphne) Liu",
+      name: "Daphne Liu",
       role: "Client Success & Project Manager",
       image: "/daphne.png",
     },
@@ -19,6 +19,11 @@ export default function About() {
       name: "Hakim Nshimiyimana",
       role: "SEO Specialist & Content Strategist",
       image: "/hakim.jpg",
+    },
+    {
+      name: "Matt Lee",
+      role: "Business & Marketing Analyst",
+      image: "/matt.jpg",
     },
   ];
 
@@ -55,6 +60,13 @@ export default function About() {
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
         }
       `}</style>
 
@@ -132,96 +144,125 @@ export default function About() {
           </motion.p>
         </motion.div>
 
-        {/* Team Members */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-16">
-          {teamMembers.map((member, index) => (
-            <motion.div
-              key={index}
-              custom={index}
-              variants={cardVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
-              className="flex flex-col items-center text-center group"
-            >
-              {/* Profile Image with Glassmorphism */}
+        {/* Team Members - Horizontal Scroll */}
+        <div
+          className="overflow-x-auto scrollbar-hide mt-16 cursor-grab active:cursor-grabbing"
+          style={{
+            scrollSnapType: "x mandatory",
+            WebkitOverflowScrolling: "touch",
+          }}
+          onMouseDown={(e) => {
+            const el = e.currentTarget;
+            const startX = e.pageX - el.offsetLeft;
+            const scrollLeft = el.scrollLeft;
+
+            const onMouseMove = (e: MouseEvent) => {
+              e.preventDefault();
+              const x = e.pageX - el.offsetLeft;
+              const walk = (x - startX) * 2;
+              el.scrollLeft = scrollLeft - walk;
+            };
+
+            const onMouseUp = () => {
+              document.removeEventListener("mousemove", onMouseMove);
+              document.removeEventListener("mouseup", onMouseUp);
+            };
+
+            document.addEventListener("mousemove", onMouseMove);
+            document.addEventListener("mouseup", onMouseUp);
+          }}
+        >
+          <div className="flex gap-8 md:gap-12 pb-4 px-4">
+            {teamMembers.map((member, index) => (
               <motion.div
-                className="relative mb-6"
-                whileHover={{ scale: 1.05 }}
-                transition={{ duration: 0.3 }}
+                key={index}
+                custom={index}
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.3 }}
+                className="flex flex-col items-center text-center group flex-shrink-0 w-64"
+                style={{ scrollSnapAlign: "start" }}
               >
-                {/* Glassmorphism container */}
+                {/* Profile Image with Glassmorphism */}
                 <motion.div
-                  className="relative p-2 backdrop-blur-xl bg-white/30 border border-white/50 shadow-2xl"
-                  style={{
-                    borderRadius: "60% 40% 30% 70%/60% 30% 70% 40%",
-                  }}
-                  animate={{
-                    borderRadius: [
-                      "60% 40% 30% 70%/60% 30% 70% 40%",
-                      "30% 60% 70% 40%/50% 60% 30% 60%",
-                      "60% 40% 30% 70%/60% 30% 70% 40%",
-                    ],
-                  }}
-                  transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: index * 0.5,
-                  }}
+                  className="relative mb-6"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.3 }}
                 >
-                  <div className="relative w-32 h-32 md:w-48 md:h-48 overflow-hidden rounded-full">
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      width={192}
-                      height={192}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+                  {/* Glassmorphism container */}
+                  <motion.div
+                    className="relative p-2 backdrop-blur-xl bg-white/30 border border-white/50 shadow-2xl"
+                    style={{
+                      borderRadius: "60% 40% 30% 70%/60% 30% 70% 40%",
+                    }}
+                    animate={{
+                      borderRadius: [
+                        "60% 40% 30% 70%/60% 30% 70% 40%",
+                        "30% 60% 70% 40%/50% 60% 30% 60%",
+                        "60% 40% 30% 70%/60% 30% 70% 40%",
+                      ],
+                    }}
+                    transition={{
+                      duration: 6,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                      delay: index * 0.5,
+                    }}
+                  >
+                    <div className="relative w-32 h-32 md:w-48 md:h-48 overflow-hidden rounded-full">
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        width={192}
+                        height={192}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                  </motion.div>
+
+                  {/* Glow effect on hover */}
+                  <motion.div
+                    className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                    style={{
+                      background:
+                        "radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, transparent 70%)",
+                      filter: "blur(20px)",
+                    }}
+                  />
                 </motion.div>
 
-                {/* Glow effect on hover */}
+                {/* Name and Role */}
                 <motion.div
-                  className="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                  style={{
-                    background:
-                      "radial-gradient(circle, rgba(59, 130, 246, 0.4) 0%, transparent 70%)",
-                    filter: "blur(20px)",
-                  }}
-                />
-              </motion.div>
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
+                >
+                  <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 group-hover:text-black transition-colors">
+                    {member.name}
+                  </h3>
+                  <p className="text-xs md:text-sm text-gray-600 font-medium">
+                    {member.role}
+                  </p>
+                </motion.div>
 
-              {/* Name and Role */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.2 + 0.3 }}
-              >
-                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 group-hover:text-black transition-colors">
-                  {member.name}
-                </h3>
-                <p className="text-xs md:text-sm text-gray-600 font-medium">
-                  {member.role}
-                </p>
+                {/* Decorative line */}
+                <motion.div className="w-0 h-0.5 bg-black mt-4 group-hover:w-16 transition-all duration-500" />
               </motion.div>
-
-              {/* Decorative line */}
-              <motion.div className="w-0 h-0.5 bg-black mt-4 group-hover:w-16 transition-all duration-500" />
-            </motion.div>
-          ))}
+            ))}
+          </div>
         </div>
 
-        {/* Mobile swipe hint (hidden on desktop) */}
+        {/* Scroll hint */}
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-center text-sm text-gray-500 mt-8 md:hidden"
+          className="text-center text-sm text-gray-500 mt-8"
         >
-          ← Swipe to see more team members →
+          ← Scroll to see all team members →
         </motion.p>
       </div>
     </section>
