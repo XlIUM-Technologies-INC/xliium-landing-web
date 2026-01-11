@@ -1,12 +1,21 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request: NextRequest) {
+  // 在请求时初始化 Resend，避免构建时错误
+  const resend = new Resend(process.env.RESEND_API_KEY || "");
   try {
     const body = await request.json();
     const { name, businessName, email, website, description } = body;
+
+    // 检查 API key
+    if (!process.env.RESEND_API_KEY) {
+      console.error("RESEND_API_KEY is not configured");
+      return NextResponse.json(
+        { error: "Email service not configured" },
+        { status: 503 }
+      );
+    }
 
     // 验证必填字段
     if (!name || !email || !description) {
