@@ -8,6 +8,7 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.xliium.com'),
   title: "Xliium - Web & SEO for Local Businesses",
   description:
     "Done-for-you websites and SEO solutions for local small and medium-sized businesses. Get more clients without learning the technical stuff.",
