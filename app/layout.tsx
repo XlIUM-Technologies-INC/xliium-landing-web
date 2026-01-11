@@ -12,8 +12,32 @@ export const metadata: Metadata = {
   description:
     "Done-for-you websites and SEO solutions for local small and medium-sized businesses. Get more clients without learning the technical stuff.",
   icons: {
-    icon: "/Logo.png",
-    apple: "/Logo.png",
+    icon: "/logo/frame-black.png",
+    apple: "/logo/frame-black.png",
+  },
+  openGraph: {
+    title: "Xliium - Web & SEO for Local Businesses",
+    description:
+      "Done-for-you websites and SEO solutions for local small and medium-sized businesses. Get more clients without learning the technical stuff.",
+    url: "https://www.xliium.com",
+    siteName: "Xliium",
+    images: [
+      {
+        url: "/logo/frame-black.png",
+        width: 1200,
+        height: 630,
+        alt: "Xliium - Web & SEO for Local Businesses",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Xliium - Web & SEO for Local Businesses",
+    description:
+      "Done-for-you websites and SEO solutions for local small and medium-sized businesses. Get more clients without learning the technical stuff.",
+    images: ["/logo/frame-black.png"],
   },
 };
 

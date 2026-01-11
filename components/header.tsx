@@ -53,9 +53,11 @@ export default function Header() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span className="text-2xl font-black tracking-tight text-white">
-                  Xliium
-                </span>
+                <img
+                  src="/logo/xliium-white.svg"
+                  alt="Xliium Logo"
+                  className="h-8 w-auto"
+                />
               </motion.button>
 
               {/* Desktop Navigation */}

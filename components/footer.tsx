@@ -100,7 +100,12 @@ export default function Footer() {
         >
           {/* Company Info */}
           <motion.div variants={itemVariants}>
-            <h3 className="font-bold text-xl mb-4 text-gray-900 script-font ">
+            <img
+              src="/logo/xliium-black.svg"
+              alt="Xliium Logo"
+              className="h-8 w-auto mb-4"
+            />
+            <h3 className="font-bold text-xl mb-2 text-gray-900 script-font ">
               XLlIUM Technologies Inc.
             </h3>
             <p className="text-sm text-gray-700 leading-relaxed mb-4">
